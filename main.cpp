@@ -1,17 +1,23 @@
 #include <iostream>
 #include "CaesarEncrypter.h"
 #include "CaesarDecrypter.h"
+#include "RailFenceEncrypter.h"
+#include "RailFenceDecrypter.h"
 
 using namespace std;
 
-int main() {
+int main()
+{
 
-    CaesarEncrypter pf;
-    CaesarDecrypter pfD(pf.getKey()); 
+    RailFenceCipherEncrypter pf;
+    RailFenceCipherDecrypter pfD(pf.getKey());
 
-    string msg = "Hello I'm Harsh Upadhayay!",
-        cipher = pf.encrypt(msg);
+    string msg = "defend the east wall";
+    // string msg = "Hello I'm Harsh Upadhayay!",
+    string cipher = pf.encrypt(msg);
 
-    // cout << cipher << "\n\n";
+    cout << pf.getKey() << "\n";
+
+    cout << cipher << "\n\n";
     cout << pfD.decrypt(cipher);
 }

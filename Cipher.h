@@ -41,8 +41,9 @@ class Cipher {
     
     typedef vector<vector<char>> pfKeyType;
     typedef int caesarKeyType;
+    typedef int RailFenceKeyType;
 
-    public :
+public:
 
 
     enum type {
