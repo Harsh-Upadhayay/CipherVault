@@ -9,7 +9,7 @@ void RailFenceCipherEncrypter ::initKey()
     key = rand() % KEY_SIZE;
 }
 
-RailFenceCipherEncrypter ::RailFenceCipherEncrypter() : KEY_SIZE(128)
+RailFenceCipherEncrypter ::RailFenceCipherEncrypter() : KEY_SIZE(8)
 {
     initKey();
 }

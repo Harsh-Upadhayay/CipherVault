@@ -13,7 +13,6 @@ int main()
     RailFenceCipherDecrypter pfD(pf.getKey());
 
     string msg = "defend the east wall";
-    // string msg = "Hello I'm Harsh Upadhayay!",
     string cipher = pf.encrypt(msg);
 
     cout << pf.getKey() << "\n";
