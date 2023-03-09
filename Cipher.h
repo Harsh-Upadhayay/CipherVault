@@ -42,9 +42,9 @@ class Cipher {
     typedef vector<vector<char>> pfKeyType;
     typedef int caesarKeyType;
     typedef int RailFenceKeyType;
+    typedef vector<vector<int>> hillKeyType;
 
 public:
-
 
     enum type {
         PLAY_FAIR_CIPHER,

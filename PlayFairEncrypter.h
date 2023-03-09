@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include "Encrypter.h"
 
 using namespace std;
