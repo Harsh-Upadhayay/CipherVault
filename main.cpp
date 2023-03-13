@@ -12,10 +12,10 @@
 using namespace std;
 
 int main() {
-    TranspositonalEncrypter pf;
-    TranspositonalDecrypter pfD(pf.getKey());
+    PlayFairEncrypter pf;
+    PlayFairDecrypter pfD(pf.getKey());
 
-    string msg = "We are discovered hola flee at once!";
+    string msg = "We are l hola flee at once!";
     string cipher = pf.encrypt(msg);
 
     cout << cipher << endl;

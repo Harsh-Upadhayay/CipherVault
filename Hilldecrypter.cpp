@@ -100,20 +100,26 @@ void adjoint(vector<vector<int>> A, vector<vector<int>>& adj, int N)
     }
 }
 
-vector<vector<int>> multiplyMatrices(vector<vector<int>> matrix1, vector<vector<int>> matrix2, int n, int m)
-{
-    vector<vector<int>> result(n, vector<int>(m, 0));
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            for (int k = 0; k < n; k++)
-            {
+vector<vector<int>> multiplyMatrices(const vector<vector<int>>& matrix1, const vector<vector<int>>& matrix2) {
+    // Check if matrix1's number of columns is equal to matrix2's number of rows
+    if (matrix1[0].size() != matrix2.size()) {
+        cout << "Error: matrices cannot be multiplied!" << endl;
+        return {};
+    }
+    
+    // Initialize the resulting matrix to all zeros
+    vector<vector<int>> result(matrix1.size(), vector<int>(matrix2[0].size(), 0));
+    
+    // Multiply the matrices
+    for (int i = 0; i < matrix1.size(); i++) {
+        for (int j = 0; j < matrix2[0].size(); j++) {
+            for (int k = 0; k < matrix2.size(); k++) {
                 result[i][j] += matrix1[i][k] * matrix2[k][j];
             }
-            result[i][j] = result[i][j] % 128;
         }
     }
+    
+    // Return the resulting matrix
     return result;
 }
  
@@ -182,11 +188,10 @@ int main() {
     // cout << "Inverse of A:\n"; 
     // printMatrix(inv); 
     // return 0; 
-    int N = 4;
-    vector<vector<int>> A = {{91, 33, 0,62},
-                             {38, 123, 3,71},
-                             {22, 69, 16,25},
-                             {111,6,38,12}};
+    vector<vector<int>> A = {{101, 100}, {70, 113}};
+
+    int N = A.size();
+                        // )VH
     vector<vector<int>> adj(N, vector<int>(N));
     adjoint(A, adj, N);
     for (int i = 0; i < N; i++)
@@ -212,25 +217,25 @@ int main() {
         }
     }
 
-    vector<vector<int>>cip= {{48},{32},{88},{120}};
+    vector<vector<int>>cip= {{24, 57}, {92, 22}};
 
-    vector<vector<int>>ret = multiplyMatrices(adj,cip,N,1);
+    vector<vector<int>>ret = multiplyMatrices(adj,cip);
 
     for (int i = 0; i < N; i++)
     {
-        for (int j = 0; j < 1; j++)
+        for (int j = 0; j < ret[0].size(); j++)
         {
-            ret[i][j]%=128;
-            if(ret[i][j] < 0){
+            while(ret[i][j] < 0){
                 ret[i][j] += 128;
             }
+            ret[i][j]%=128;
         }
         
     }
 
     for (int i = 0; i < N; ++i)
     {
-        for (int j = 0; j < 1; ++j)
+        for (int j = 0; j < ret[0].size(); ++j)
         {
             char x = ret[i][j];
             cout<<x<<" ";
