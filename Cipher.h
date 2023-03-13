@@ -36,6 +36,7 @@ class Cipher {
     typedef int RailFenceKeyType;
     typedef vector<vector<int>> hillKeyType;
     typedef vector<int> storeVec;
+    typedef pair<int, int> affineKeyType;
 
    public:
     enum type {

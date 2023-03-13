@@ -8,14 +8,16 @@
 #include "RailFenceEncrypter.h"
 #include "TranspositionalDecrypter.h"
 #include "TranspositionalEncrypter.h"
+#include "AffineDecrypter.h"
+#include "AffineEncrypter.h"
 
 using namespace std;
 
 int main() {
-    TranspositonalEncrypter pf;
-    TranspositonalDecrypter pfD(pf.getKey());
+    AffineEncrypter pf;
+    AffineDecrypter pfD(pf.getKey());
 
-    string msg = "We are discovered hola flee at once!";
+    string msg = "We";
     string cipher = pf.encrypt(msg);
 
     cout << cipher << endl;
